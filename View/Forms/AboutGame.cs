@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace View.Forms
 {
-    partial class AbouteGame : Form
+    partial class AboutGame : Form
     {
-        public AbouteGame()
+        public AboutGame()
         {
             InitializeComponent();
             this.Text = String.Format("О программе {0}", AssemblyTitle);

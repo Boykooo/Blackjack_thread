@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic
+namespace Logic.Game
 {
     public enum Lear { Heart, Diamond, Club, Spade};
-    class Card
+    private class Card
     {
         public Lear Lear { get; set; }
         public string Name { get; set; }

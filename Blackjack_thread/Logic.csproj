@@ -44,8 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.cs" />
-    <Compile Include="Deck.cs" />
+    <Compile Include="Game\Card.cs" />
+    <Compile Include="Game\Deck.cs" />
+    <Compile Include="Exceptions\DataLoadException.cs" />
+    <Compile Include="Exceptions\OverDeckException.cs" />
+    <Compile Include="Game\GameLogic.cs" />
+    <Compile Include="Game\Hand.cs" />
+    <Compile Include="Game\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

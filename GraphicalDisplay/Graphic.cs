@@ -10,6 +10,7 @@ namespace GraphicalDisplay
     public class Graphic
     {
         private Bitmap mainBT;
+        private Image Shirt;
         public Graphic(int wh, int ht)
         {
             mainBT = new Bitmap(wh, ht);
