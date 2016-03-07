@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Logic.Game;
+using View.Game;
 
-namespace Logic.Controller
+namespace View.Controllers
 {
-    public class GameLogic
+    public class GameController
     {
         private Player[] bots;
         private Player player;
         private Deck deck;
-        public GameLogic()
+        public GameController()
         {
+            player = new Player();
             bots = new Player[3];
             for (int i = 0; i < bots.Length; i++)
             {
@@ -29,6 +30,7 @@ namespace Logic.Controller
             ClearHandPlayers(player);
 
         }
+
         private void ClearHandPlayers(params Player[] players)
         {
             foreach (var player in players)
@@ -37,6 +39,7 @@ namespace Logic.Controller
                 player.Money = 1000;
             }
         }
+
 
     }
 }

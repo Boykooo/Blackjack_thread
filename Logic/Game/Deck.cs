@@ -8,7 +8,7 @@ using Logic.Exceptions;
 
 namespace Logic.Game
 {
-    private class Deck
+    public class Deck
     {
         private Stack<Card> currentDeck;
         private Card[] mainDeck;

@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Graphic">
+      <HintPath>..\GraphicalDisplay\bin\Debug\Graphic.dll</HintPath>
+    </Reference>
+    <Reference Include="Logic">
+      <HintPath>..\Logic\bin\Debug\Logic.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,7 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\ViewController.cs" />
+    <Compile Include="Exceptions\DataLoadException.cs" />
     <Compile Include="Forms\AboutGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +71,11 @@
     <Compile Include="Forms\RateForm.Designer.cs">
       <DependentUpon>RateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game\Card.cs" />
+    <Compile Include="Game\Deck.cs" />
+    <Compile Include="Game\Hand.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Interfaces\IForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AboutGame.resx">

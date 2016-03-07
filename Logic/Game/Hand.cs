@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Game
 {
-    private class Hand
+    public class Hand
     {
         private List<Card> cards;
         public int Point

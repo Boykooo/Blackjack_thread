@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Logic.Game
 {
     public enum TypePlayer { Bot, Player, Dealer };
-    private class Player
+    public class Player
     {
         public TypePlayer TypePlayer { get; set; }
         public string Name { get; set; }

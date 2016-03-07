@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Logic.Game
 {
     public enum Lear { Heart, Diamond, Club, Spade };
-    private class Card
+    public class Card
     {
         public Lear Lear { get; set; }
         public string Name { get; set; }
