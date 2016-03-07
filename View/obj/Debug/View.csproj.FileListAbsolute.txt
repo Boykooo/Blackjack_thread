@@ -1,0 +1,8 @@
+C:\Users\Андрей\Desktop\Blackjack_thread\View\bin\Debug\View.exe.config
+C:\Users\Андрей\Desktop\Blackjack_thread\View\bin\Debug\View.exe
+C:\Users\Андрей\Desktop\Blackjack_thread\View\bin\Debug\View.pdb
+C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.csprojResolveAssemblyReference.cache
+C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.csproj.GenerateResource.Cache
+C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.exe
+C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.pdb

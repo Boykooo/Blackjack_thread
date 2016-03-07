@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Logic.Game;
 
-namespace Logic.Game
+namespace Logic.Controller
 {
     public class GameLogic
     {
@@ -36,7 +37,6 @@ namespace Logic.Game
                 player.Money = 1000;
             }
         }
-
 
     }
 }
