@@ -26,7 +26,6 @@ namespace View.Forms
 
         }
 
-
         private void TakeButton_Click(object sender, EventArgs e)
         {
             controller.TakeCard();
@@ -42,5 +41,24 @@ namespace View.Forms
             g.DrawImage(bt, new Point(0, 0));
         }
 
+        public bool EnabledButton
+        {
+            get;
+            set 
+            {
+                if (!value)
+                {
+                    EnoughButton.Enabled = false;
+                    TakeButton.Enabled = false;
+                }
+                else
+                {
+                    EnoughButton.Enabled = true;
+                    TakeButton.Enabled = true;
+                }
+                EnabledButton = value;
+            }
+        }
     }
 }
+

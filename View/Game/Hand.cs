@@ -8,7 +8,7 @@ namespace View.Game
 {
     public class Hand
     {
-        private List<Card> cards;
+        public List<Card> cards { get; private set; }
         public int Point
         {
             get
@@ -28,7 +28,6 @@ namespace View.Game
             Point = 0;
             cards = new List<Card>();
         }
-
         public void AddCard(Card card)
         {
             cards.Add(card);

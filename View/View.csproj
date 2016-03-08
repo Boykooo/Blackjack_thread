@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Graphic">
-      <HintPath>..\GraphicalDisplay\bin\Debug\Graphic.dll</HintPath>
-    </Reference>
     <Reference Include="Logic">
       <HintPath>..\Logic\bin\Debug\Logic.dll</HintPath>
     </Reference>
@@ -75,6 +72,7 @@
     <Compile Include="Game\Deck.cs" />
     <Compile Include="Game\Hand.cs" />
     <Compile Include="Game\Player.cs" />
+    <Compile Include="Rendering\Graphic.cs" />
     <Compile Include="Interfaces\IForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

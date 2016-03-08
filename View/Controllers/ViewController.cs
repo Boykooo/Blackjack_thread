@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Logic.Controller;
 using View.Interfaces;
-using GraphicDLL;
+using View.Rendering;
 
 namespace View.Controllers
 {
@@ -17,7 +17,7 @@ namespace View.Controllers
         public ViewController(int wh, int ht)
         {
             g = new Graphic(wh, ht);
-            game = new GameController();
+            game = new GameController(view);
             game.NewGame();
             view.Update(g.Draw());
         }

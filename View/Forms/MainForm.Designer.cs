@@ -45,7 +45,7 @@
             this.label1.Location = new System.Drawing.Point(838, 714);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(165, 31);
+            this.label1.Size = new System.Drawing.Size(171, 31);
             this.label1.TabIndex = 12;
             this.label1.Text = "Ставка : 0";
             // 
