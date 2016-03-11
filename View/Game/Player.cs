@@ -13,8 +13,10 @@ namespace View.Game
         public string Name { get; set; }
         public Hand Hand { get; set; }
         public int Money { get; set; }
+        public int Bet { get; set; }
         public Player()
         {
+            Hand = new Game.Hand();
             Money = 1000;
         }
     }

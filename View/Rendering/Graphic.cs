@@ -37,9 +37,11 @@ namespace View.Rendering
             g.DrawImage(background, new Point(0, 20));
             for (int i = 0; i < bots.Length; i++)
             {
+                g.DrawString(bots[i].Name, new Font("Times New Roman", 20), Brushes.Black, startPointBots[i].X + 10, startPointBots[i].Y - 30);
                 DrawCard(bots[i], startPointBots[i]);
             }
 
+            g.DrawString("Игрок", new Font("Times New Roman", 20), Brushes.Black, startPointPlayer.X + 10, startPointPlayer.Y - 30);
             for (int j = 0, shift = 0; j < pl.Hand.cards.Count; j++, shift += 25)
             {
                 DrawCard(pl, startPointPlayer);
@@ -78,6 +80,12 @@ namespace View.Rendering
             }
             return mainBT;
         }
+        public Bitmap GetBackground()
+        {
+            g.Clear(Color.Black);
+            g.DrawImage(background, new Point(0, 20));
 
+            return mainBT;
+        }
     }
 }

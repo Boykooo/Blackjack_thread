@@ -8,5 +8,5 @@ C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.exe
 C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.pdb
 C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.Forms.AboutGame.resources
 C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.Forms.MainForm.resources
-C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.Forms.RateForm.resources
 C:\Users\Андрей\Desktop\Blackjack_thread\View\bin\Debug\Logic.pdb
+C:\Users\Андрей\Desktop\Blackjack_thread\View\obj\Debug\View.Forms.BetForm.resources

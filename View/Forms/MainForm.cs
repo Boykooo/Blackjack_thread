@@ -17,35 +17,44 @@ namespace View.Forms
         private Graphics g;
         private GameController controller;
         private bool enabledButton;
+        private BetForm betForm;
         public MainForm()
         {
             InitializeComponent();
             g = CreateGraphics();
+            BackgroundImage = Image.FromFile(@"Images\Background.jpg");
             controller = new GameController(this, ClientRectangle.Width, ClientRectangle.Height);
-        }
-        private void MainForm_Load(object sender, EventArgs e)
-        {
+            betForm = new BetForm();
         }
 
         private void TakeButton_Click(object sender, EventArgs e)
         {
             controller.TakeCard();
         }
-
         private void EnoughButton_Click(object sender, EventArgs e)
         {
             controller.Enough();
         }
-
+        private void новаяИграToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controller.NewGame();
+        }
         public void UpdatePic(Bitmap bt)
         {
             g.DrawImage(bt, new Point(0, 0));
         }
-
+        public void UpdatePoints(int point)
+        {
+            PointLabel.Text = "Очки : " + point.ToString();
+        }
+        public void UpdateMoney(int money)
+        {
+            MoneyLabel.Text = "Деньги : " + money.ToString();
+        }
         public bool EnabledButton
         {
             get { return enabledButton; }
-            set 
+            set
             {
                 if (!value)
                 {
@@ -60,21 +69,20 @@ namespace View.Forms
                 enabledButton = value;
             }
         }
-
-        private void новаяИграToolStripMenuItem_Click(object sender, EventArgs e)
+        public int GetBet(int maxBet)
         {
-            controller.NewGame();
+            betForm.MyShow(maxBet);
+            BetLabel.Text = "Ставка : " + betForm.Bet.ToString();
+            return betForm.Bet;
         }
 
-
-        public void UpdatePoints(int point)
+        public void Winner(string name)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Победитель: " + name);
         }
-
-        public void UpdateMoney(int money)
+        public void GameOver()
         {
-            throw new NotImplementedException();
+            MessageBox.Show("У вас закончились деньги. Вы проиграли");
         }
     }
 }

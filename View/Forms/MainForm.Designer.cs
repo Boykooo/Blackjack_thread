@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.label1 = new System.Windows.Forms.Label();
+            this.BetLabel = new System.Windows.Forms.Label();
             this.EnoughButton = new System.Windows.Forms.Button();
             this.TakeButton = new System.Windows.Forms.Button();
             this.MoneyLabel = new System.Windows.Forms.Label();
@@ -42,23 +42,23 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // BetLabel
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(838, 714);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(171, 31);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Ставка : 0";
+            this.BetLabel.BackColor = System.Drawing.Color.Transparent;
+            this.BetLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BetLabel.Location = new System.Drawing.Point(806, 714);
+            this.BetLabel.Name = "BetLabel";
+            this.BetLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BetLabel.Size = new System.Drawing.Size(171, 31);
+            this.BetLabel.TabIndex = 12;
+            this.BetLabel.Text = "Ставка : 0";
             // 
             // EnoughButton
             // 
             this.EnoughButton.BackColor = System.Drawing.Color.ForestGreen;
             this.EnoughButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnoughButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EnoughButton.Location = new System.Drawing.Point(518, 623);
+            this.EnoughButton.Location = new System.Drawing.Point(510, 623);
             this.EnoughButton.Name = "EnoughButton";
             this.EnoughButton.Size = new System.Drawing.Size(102, 37);
             this.EnoughButton.TabIndex = 11;
@@ -71,7 +71,7 @@
             this.TakeButton.BackColor = System.Drawing.Color.ForestGreen;
             this.TakeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TakeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TakeButton.Location = new System.Drawing.Point(410, 623);
+            this.TakeButton.Location = new System.Drawing.Point(402, 623);
             this.TakeButton.Name = "TakeButton";
             this.TakeButton.Size = new System.Drawing.Size(102, 37);
             this.TakeButton.TabIndex = 10;
@@ -84,7 +84,7 @@
             this.MoneyLabel.AutoSize = true;
             this.MoneyLabel.BackColor = System.Drawing.Color.Transparent;
             this.MoneyLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MoneyLabel.Location = new System.Drawing.Point(838, 745);
+            this.MoneyLabel.Location = new System.Drawing.Point(806, 745);
             this.MoneyLabel.Name = "MoneyLabel";
             this.MoneyLabel.Size = new System.Drawing.Size(171, 31);
             this.MoneyLabel.TabIndex = 9;
@@ -94,7 +94,7 @@
             // 
             this.PointLabel.BackColor = System.Drawing.Color.Transparent;
             this.PointLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PointLabel.Location = new System.Drawing.Point(838, 683);
+            this.PointLabel.Location = new System.Drawing.Point(806, 683);
             this.PointLabel.Name = "PointLabel";
             this.PointLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PointLabel.Size = new System.Drawing.Size(171, 31);
@@ -117,7 +117,7 @@
             this.играToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1021, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(986, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,9 +141,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1021, 785);
-            this.Controls.Add(this.label1);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(986, 785);
+            this.Controls.Add(this.BetLabel);
             this.Controls.Add(this.EnoughButton);
             this.Controls.Add(this.TakeButton);
             this.Controls.Add(this.MoneyLabel);
@@ -153,7 +153,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Shirt)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -164,7 +163,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label BetLabel;
         private System.Windows.Forms.Button EnoughButton;
         private System.Windows.Forms.Button TakeButton;
         private System.Windows.Forms.Label MoneyLabel;

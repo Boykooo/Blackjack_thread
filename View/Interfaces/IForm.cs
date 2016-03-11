@@ -13,5 +13,8 @@ namespace View.Interfaces
         bool EnabledButton { get; set; }
         void UpdatePoints(int point);
         void UpdateMoney(int money);
+        void Winner(string name);
+        void GameOver();
+        int GetBet(int maxBet);
     }
 }

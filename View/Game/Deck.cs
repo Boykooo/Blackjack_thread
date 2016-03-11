@@ -20,7 +20,7 @@ namespace View.Game
             FillMainDeck();
             RandomDeck();
         }
-        private void RandomDeck()
+        public void RandomDeck()
         {
             Random r = new Random();
             for (int i = mainDeck.Length - 1; i > 0; i--)
