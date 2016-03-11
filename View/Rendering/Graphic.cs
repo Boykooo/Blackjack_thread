@@ -73,7 +73,9 @@ namespace View.Rendering
                 {
                     g.DrawImage(bots[i].Hand.cards[j].Picture, new Point(startPointBots[i].X + shift, startPointBots[i].Y));
                 }
+                g.DrawString(bots[i].Name, new Font("Times New Roman", 20), Brushes.Black, startPointBots[i].X + 10, startPointBots[i].Y - 30);
             }
+            g.DrawString("Игрок", new Font("Times New Roman", 20), Brushes.Black, startPointPlayer.X + 10, startPointPlayer.Y - 30);
             for (int j = 0, shift = 0; j < pl.Hand.cards.Count; j++, shift += 25)
             {
                 g.DrawImage(pl.Hand.cards[j].Picture, new Point(startPointPlayer.X + shift, startPointPlayer.Y));

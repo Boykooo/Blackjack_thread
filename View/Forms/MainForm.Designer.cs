@@ -40,15 +40,17 @@
             this.новаяИграToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.правилаИгрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Shirt)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BetLabel
             // 
             this.BetLabel.BackColor = System.Drawing.Color.Transparent;
             this.BetLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BetLabel.Location = new System.Drawing.Point(806, 714);
+            this.BetLabel.Location = new System.Drawing.Point(3, 35);
             this.BetLabel.Name = "BetLabel";
             this.BetLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BetLabel.Size = new System.Drawing.Size(171, 31);
@@ -86,7 +88,7 @@
             this.MoneyLabel.AutoSize = true;
             this.MoneyLabel.BackColor = System.Drawing.Color.Transparent;
             this.MoneyLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MoneyLabel.Location = new System.Drawing.Point(806, 745);
+            this.MoneyLabel.Location = new System.Drawing.Point(3, 66);
             this.MoneyLabel.Name = "MoneyLabel";
             this.MoneyLabel.Size = new System.Drawing.Size(171, 31);
             this.MoneyLabel.TabIndex = 9;
@@ -96,7 +98,7 @@
             // 
             this.PointLabel.BackColor = System.Drawing.Color.Transparent;
             this.PointLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PointLabel.Location = new System.Drawing.Point(806, 683);
+            this.PointLabel.Location = new System.Drawing.Point(3, 4);
             this.PointLabel.Name = "PointLabel";
             this.PointLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PointLabel.Size = new System.Drawing.Size(171, 31);
@@ -154,26 +156,37 @@
             this.правилаИгрыToolStripMenuItem.Text = "Правила игры";
             this.правилаИгрыToolStripMenuItem.Click += new System.EventHandler(this.правилаИгрыToolStripMenuItem_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.MoneyLabel);
+            this.panel1.Controls.Add(this.BetLabel);
+            this.panel1.Controls.Add(this.PointLabel);
+            this.panel1.Location = new System.Drawing.Point(796, 677);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(178, 96);
+            this.panel1.TabIndex = 14;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(986, 785);
-            this.Controls.Add(this.BetLabel);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.EnoughButton);
             this.Controls.Add(this.TakeButton);
-            this.Controls.Add(this.MoneyLabel);
-            this.Controls.Add(this.PointLabel);
             this.Controls.Add(this.Shirt);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "BlackJack";
             ((System.ComponentModel.ISupportInitialize)(this.Shirt)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,6 +205,7 @@
         private System.Windows.Forms.ToolStripMenuItem новаяИграToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem правилаИгрыToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

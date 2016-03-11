@@ -23,7 +23,7 @@ namespace View.Forms
         {
             InitializeComponent();
             g = CreateGraphics();
-            BackgroundImage = Image.FromFile(@"Images\Background.jpg");
+            //BackgroundImage = Image.FromFile(@"Images\Background.jpg");
             controller = new GameController(this, ClientRectangle.Width, ClientRectangle.Height);
             betForm = new BetForm();
             aboutGame = new AboutGame();
