@@ -35,7 +35,11 @@
             this.MoneyLabel = new System.Windows.Forms.Label();
             this.PointLabel = new System.Windows.Forms.Label();
             this.Shirt = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.играToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.новаяИграToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Shirt)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -99,12 +103,38 @@
             // 
             // Shirt
             // 
-            this.Shirt.Location = new System.Drawing.Point(12, 12);
+            this.Shirt.Image = ((System.Drawing.Image)(resources.GetObject("Shirt.Image")));
+            this.Shirt.Location = new System.Drawing.Point(12, 36);
             this.Shirt.Name = "Shirt";
             this.Shirt.Size = new System.Drawing.Size(108, 152);
             this.Shirt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Shirt.TabIndex = 7;
             this.Shirt.TabStop = false;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.играToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1021, 24);
+            this.menuStrip1.TabIndex = 13;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // играToolStripMenuItem
+            // 
+            this.играToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.новаяИграToolStripMenuItem});
+            this.играToolStripMenuItem.Name = "играToolStripMenuItem";
+            this.играToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.играToolStripMenuItem.Text = "Игра";
+            // 
+            // новаяИграToolStripMenuItem
+            // 
+            this.новаяИграToolStripMenuItem.Name = "новаяИграToolStripMenuItem";
+            this.новаяИграToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.новаяИграToolStripMenuItem.Text = "Новая игра";
+            this.новаяИграToolStripMenuItem.Click += new System.EventHandler(this.новаяИграToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -112,7 +142,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1021, 785);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EnoughButton);
@@ -120,10 +149,14 @@
             this.Controls.Add(this.MoneyLabel);
             this.Controls.Add(this.PointLabel);
             this.Controls.Add(this.Shirt);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Shirt)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,6 +170,9 @@
         private System.Windows.Forms.Label MoneyLabel;
         private System.Windows.Forms.Label PointLabel;
         private System.Windows.Forms.PictureBox Shirt;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem играToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem новаяИграToolStripMenuItem;
     }
 }
 

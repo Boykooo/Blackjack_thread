@@ -9,7 +9,9 @@ namespace View.Interfaces
 {
     public interface IForm
     {
-        void Update(Bitmap bt);
+        void UpdatePic(Bitmap bt);
         bool EnabledButton { get; set; }
+        void UpdatePoints(int point);
+        void UpdateMoney(int money);
     }
 }

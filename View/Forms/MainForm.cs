@@ -15,15 +15,16 @@ namespace View.Forms
     public partial class MainForm : Form, IForm
     {
         private Graphics g;
-        private ViewController controller;
+        private GameController controller;
+        private bool enabledButton;
         public MainForm()
         {
             InitializeComponent();
             g = CreateGraphics();
+            controller = new GameController(this, ClientRectangle.Width, ClientRectangle.Height);
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void TakeButton_Click(object sender, EventArgs e)
@@ -36,14 +37,14 @@ namespace View.Forms
             controller.Enough();
         }
 
-        public void Update(Bitmap bt)
+        public void UpdatePic(Bitmap bt)
         {
             g.DrawImage(bt, new Point(0, 0));
         }
 
         public bool EnabledButton
         {
-            get;
+            get { return enabledButton; }
             set 
             {
                 if (!value)
@@ -56,8 +57,24 @@ namespace View.Forms
                     EnoughButton.Enabled = true;
                     TakeButton.Enabled = true;
                 }
-                EnabledButton = value;
+                enabledButton = value;
             }
+        }
+
+        private void новаяИграToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controller.NewGame();
+        }
+
+
+        public void UpdatePoints(int point)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateMoney(int money)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace View.Game
         public Deck()
         {
             mainDeck = new Card[52];
+            currentDeck = new Stack<Card>();
             FillMainDeck();
             RandomDeck();
         }
@@ -39,7 +40,7 @@ namespace View.Game
         {
             Lear[] lear = new Lear[] { Lear.Club, Lear.Diamond, Lear.Heart, Lear.Spade };
 
-            for (int i = 0, j = 1; i < 52; i += 13, j++)
+            for (int i = 0, j = 0; i < 52; i += 13, j++)
             {
                 AddLearToDeck(i, lear[j]);
             }
