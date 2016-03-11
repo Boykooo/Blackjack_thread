@@ -18,6 +18,7 @@ namespace View.Forms
         private GameController controller;
         private bool enabledButton;
         private BetForm betForm;
+        private AboutGame aboutGame;
         public MainForm()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace View.Forms
             BackgroundImage = Image.FromFile(@"Images\Background.jpg");
             controller = new GameController(this, ClientRectangle.Width, ClientRectangle.Height);
             betForm = new BetForm();
+            aboutGame = new AboutGame();
         }
 
         private void TakeButton_Click(object sender, EventArgs e)
@@ -83,6 +85,11 @@ namespace View.Forms
         public void GameOver()
         {
             MessageBox.Show("У вас закончились деньги. Вы проиграли");
+        }
+
+        private void правилаИгрыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            aboutGame.Show();
         }
     }
 }
