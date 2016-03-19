@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace View.Game
 {
+    /// <summary>
+    /// Класс руки
+    /// </summary>
     public class Hand
     {
         public List<Card> cards { get; private set; }
@@ -28,6 +31,10 @@ namespace View.Game
             Point = 0;
             cards = new List<Card>();
         }
+        /// <summary>
+        /// Добавить карту в руку
+        /// </summary>
+        /// <param name="card"></param>
         public void AddCard(Card card)
         {
             cards.Add(card);

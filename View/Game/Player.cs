@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace View.Game
 {
+    /// <summary>
+    /// Перечисление типов игроков
+    /// </summary>
     public enum TypePlayer { Bot, Player, Dealer };
+    /// <summary>
+    /// Класс игрока
+    /// </summary>
     public class Player
     {
         public TypePlayer TypePlayer { get; set; }

@@ -10,7 +10,10 @@ using View.Rendering;
 
 namespace View.Controllers
 {
-    public class GameController
+    /// <summary>
+    /// Контроллер игры
+    /// </summary>
+    public class GameController : IGame
     {
         private Player[] bots;
         private Player player;
@@ -18,28 +21,29 @@ namespace View.Controllers
         private Thread[] botThreads;
         private IForm view;
         private object keyUpdate;
-        private Graphic g;
+        private Render g;
         private Random rand;
 
         public GameController(IForm view, int wh, int ht)
         {
             rand = new Random();
             this.view = view;
-            g = new Graphic(wh, ht);
+            g = new Render(wh, ht);
             view.UpdatePic(g.GetBackground());
             player = new Player();
             player.TypePlayer = TypePlayer.Player;
             player.Name = "Player";
             InitBots();
             botThreads = new Thread[3];
-            UpdateThreads();
             keyUpdate = new object();
         }
-
+        /// <summary>
+        /// Создание ботов
+        /// </summary>
         private void InitBots()
         {
             bots = new Player[3];
-            string[] names = new string[] { "Bob", "John", "Nancey", "Nicole", "Bettany", "Mark", "Justin", "Karl", "Andrew", "Rita", "Tayler"};
+            string[] names = new string[] { "Bob", "John", "Nancey", "Nicole", "Bettany", "Mark", "Justin", "Karl", "Andrew", "Rita", "Tayler" };
             for (int i = 0; i < bots.Length; i++)
             {
                 bots[i] = new Player();
@@ -48,11 +52,17 @@ namespace View.Controllers
             bots[0].Name = "Казино";
             bots[0].TypePlayer = TypePlayer.Dealer;
         }
+        /// <summary>
+        /// Новая игра
+        /// </summary>
         public void NewGame()
         {
             deck = new Deck();
             Turn();
         }
+        /// <summary>
+        /// Имитация ставок ботов
+        /// </summary>
         private void BetBots()
         {
             for (int i = 0; i < bots.Length; i++)
@@ -60,6 +70,11 @@ namespace View.Controllers
                 bots[i].Bet = rand.Next(10, bots[i].Money / 2);
             }
         }
+        /// <summary>
+        /// Очистка рук всех игроков
+        /// </summary>
+        /// <param name="bots"> Массив ботов </param>
+        /// <param name="pl"> Класс игрока-человека </param>
         private void ClearHand(Player[] bots, Player pl)
         {
             for (int i = 0; i < bots.Length; i++)
@@ -68,29 +83,37 @@ namespace View.Controllers
             }
             pl.Hand = new Hand();
         }
-        public void Turn()
+        /// <summary>
+        /// Начало новой партии
+        /// </summary>
+        private void Turn()
         {
             ClearHand(bots, player);
             player.Bet = view.GetBet(player.Money);
             BetBots();
-            UpdateThreads();
+            //UpdateThreads();
             DefaultCards(bots, player);
             view.UpdatePoints(player.Hand.Point);
-            for (int i = 0; i < botThreads.Length; i++) // запускаем ботов
-            {
-                botThreads[i].Start();
-            }
-
+            StartBots();
         }
-        private void UpdateThreads()
+        /// <summary>
+        /// Запуск ботов
+        /// </summary>
+        private void StartBots()
         {
             for (int i = 0; i < botThreads.Length; i++)
             {
                 int j = i; //magic
                 botThreads[i] = new Thread(delegate() { BotTurn(bots[j]); });
                 botThreads[i].IsBackground = true;
+                botThreads[i].Start();
             }
         }
+        /// <summary>
+        /// Раздача карт в начале партии
+        /// </summary>
+        /// <param name="bots" >Массив ботов </param>
+        /// <param name="pl"> Класс игрока-человека </param>
         private void DefaultCards(Player[] bots, Player pl)
         {
             view.EnabledButton = false;
@@ -103,14 +126,22 @@ namespace View.Controllers
             GiveCard(pl);
             view.EnabledButton = true;
         }
+        /// <summary>
+        /// Имитация логики ботов 
+        /// </summary>
+        /// <param name="bot"></param>
         private void BotTurn(Player bot)
         {
             while (bot.Hand.Point < 17)
             {
-                Thread.Sleep(rand.Next(500,2500)); // бот думает
+                Thread.Sleep(rand.Next(500, 2500)); // бот думает
                 GiveCard(bot);
             }
         }
+        /// <summary>
+        /// Выдача карты игроку
+        /// </summary>
+        /// <param name="pl">Класс игрока</param>
         private void GiveCard(Player pl)
         {
             pl.Hand.AddCard(deck.TakeCard());
@@ -120,8 +151,10 @@ namespace View.Controllers
                 view.UpdatePic(g.Draw(bots, player));
             }
         }
-
-        private void Join()
+        /// <summary>
+        /// Ожидание завершения потоков ботов
+        /// </summary>
+        private void JoinBots()
         {
             for (int i = 0; i < botThreads.Length; i++)
             {
@@ -132,23 +165,9 @@ namespace View.Controllers
                 }
             }
         }
-
-        public void TakeCard()
-        {
-            GiveCard(player);
-            view.UpdatePoints(player.Hand.Point);
-            if (player.Hand.Point > 21)
-            {
-                Enough();
-            }
-        }
-        public void Enough()
-        {
-            view.EnabledButton = false;
-            Join();
-            EndGame();
-        }
-
+        /// <summary>
+        /// Конец партии, определение победителя
+        /// </summary>
         private void EndGame()
         {
             view.UpdatePic(g.ShowCards(bots, player));
@@ -173,11 +192,15 @@ namespace View.Controllers
                 }
             }
 
+            //Новая партия
             deck.RandomDeck();
             view.UpdateMoney(player.Money);
             Turn();
         }
-
+        /// <summary>
+        /// Вычисление средcтв ботов
+        /// </summary>
+        /// <param name="winnerBot">индекс бота-победителя или при отсутствии победителя - null </param>
         private void PickUpBetBots(int? winnerBot)
         {
             for (int i = 0; i < bots.Length; i++)
@@ -187,10 +210,14 @@ namespace View.Controllers
 
             if (winnerBot != null)
             {
-                int i = (int) winnerBot;
+                int i = (int)winnerBot;
                 bots[i].Money += 2 * bots[i].Bet;
             }
         }
+        /// <summary>
+        /// Определение победителя среди ботов
+        /// </summary>
+        /// <returns></returns>
         private int WinnerOfBots()
         {
             int max = 0;
@@ -205,5 +232,22 @@ namespace View.Controllers
             }
             return index;
         }
+
+        public void TakeCard()
+        {
+            GiveCard(player);
+            view.UpdatePoints(player.Hand.Point);
+            if (player.Hand.Point > 21)
+            {
+                Enough();
+            }
+        }
+        public void Enough()
+        {
+            view.EnabledButton = false;
+            JoinBots();
+            EndGame();
+        }
+
     }
 }

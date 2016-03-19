@@ -8,6 +8,9 @@ using View.Exceptions;
 
 namespace View.Game
 {
+    /// <summary>
+    /// Класс колоды
+    /// </summary>
     public class Deck
     {
         private Stack<Card> currentDeck;
@@ -20,6 +23,9 @@ namespace View.Game
             FillMainDeck();
             RandomDeck();
         }
+        /// <summary>
+        /// Перемешивает колоду
+        /// </summary>
         public void RandomDeck()
         {
             Random r = new Random();
@@ -36,6 +42,9 @@ namespace View.Game
             }
         }
 
+        /// <summary>
+        /// Заполнение основной колоды
+        /// </summary>
         private void FillMainDeck()
         {
             Lear[] lear = new Lear[] { Lear.Club, Lear.Diamond, Lear.Heart, Lear.Spade };
@@ -45,6 +54,11 @@ namespace View.Game
                 AddLearToDeck(i, lear[j]);
             }
         }
+        /// <summary>
+        /// Добавление колоду карт определенного индекса и определенной масти
+        /// </summary>
+        /// <param name="start"> Индекс добавления карт </param>
+        /// <param name="lear"> Масть карт </param>
         private void AddLearToDeck(int start, Lear lear)
         {
             try
@@ -64,19 +78,23 @@ namespace View.Game
                 throw new DataLoadException();
             }
         }
+        /// <summary>
+        /// Добавление карт с картинками в основную колоду
+        /// </summary>
+        /// <param name="lear"> Масть карт </param>
+        /// <param name="i"> Индекс добавления карт </param>
+        /// <param name="name"> Имя карты </param>
         private void AddCardWithPicture(Lear lear, int i, string name)
         {
             mainDeck[i] = new Card(lear, name, 10, Image.FromFile(@"Images\Cards\" + lear.ToString() + name + ".jpg"));
         }
-
+        /// <summary>
+        /// Возвращает карту из текущей колоды
+        /// </summary>
+        /// <returns> Карта </returns>
         public Card TakeCard()
         {
-            if (currentDeck.Count != 0)
-            {
-                return currentDeck.Pop();
-            }
-
-            throw new Exception("Закончилась колода"); // ???
+            return currentDeck.Pop();
         }
     }
 }

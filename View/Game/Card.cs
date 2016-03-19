@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace View.Game
 {
+    /// <summary>
+    /// Перечисление мастей
+    /// </summary>
     public enum Lear { Heart, Diamond, Club, Spade };
+    /// <summary>
+    /// Класс карты
+    /// </summary>
     public class Card
     {
         public Lear Lear { get; set; }

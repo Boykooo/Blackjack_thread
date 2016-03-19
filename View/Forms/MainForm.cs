@@ -15,7 +15,7 @@ namespace View.Forms
     public partial class MainForm : Form, IForm
     {
         private Graphics g;
-        private GameController controller;
+        IGame controller;
         private bool enabledButton;
         private BetForm betForm;
         private AboutGame aboutGame;
@@ -23,7 +23,6 @@ namespace View.Forms
         {
             InitializeComponent();
             g = CreateGraphics();
-            //BackgroundImage = Image.FromFile(@"Images\Background.jpg");
             controller = new GameController(this, ClientRectangle.Width, ClientRectangle.Height);
             betForm = new BetForm();
             aboutGame = new AboutGame();
@@ -71,6 +70,11 @@ namespace View.Forms
                 enabledButton = value;
             }
         }
+        /// <summary>
+        /// Ставка игрока-человека
+        /// </summary>
+        /// <param name="maxBet"> Максимально возмозможная ставка </param>
+        /// <returns> Целое число </returns>
         public int GetBet(int maxBet)
         {
             betForm.MyShow(maxBet);
@@ -78,10 +82,16 @@ namespace View.Forms
             return betForm.Bet;
         }
 
+        /// <summary>
+        /// Сообщение о победе какого-либо игрока
+        /// </summary>
         public void Winner(string name)
         {
             MessageBox.Show("Победитель: " + name);
         }
+        /// <summary>
+        /// Сообщение о поражении
+        /// </summary>
         public void GameOver()
         {
             MessageBox.Show("У вас закончились деньги. Вы проиграли");

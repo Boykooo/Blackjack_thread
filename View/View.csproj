@@ -71,7 +71,8 @@
     <Compile Include="Game\Deck.cs" />
     <Compile Include="Game\Hand.cs" />
     <Compile Include="Game\Player.cs" />
-    <Compile Include="Rendering\Graphic.cs" />
+    <Compile Include="Interfaces\IGame.cs" />
+    <Compile Include="Rendering\Render.cs" />
     <Compile Include="Interfaces\IForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

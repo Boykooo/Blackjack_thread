@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace View.Interfaces
 {
+    /// <summary>
+    /// Интерфейс формы
+    /// </summary>
     public interface IForm
     {
         void UpdatePic(Bitmap bt);
