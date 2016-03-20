@@ -12,7 +12,7 @@ namespace View.Interfaces
     /// </summary>
     public interface IForm
     {
-        void UpdatePic(Bitmap bt);
+        void UpdatePic(Bitmap pic);
         bool EnabledButton { get; set; }
         void UpdatePoints(int point);
         void UpdateMoney(int money);

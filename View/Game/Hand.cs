@@ -39,9 +39,5 @@ namespace View.Game
         {
             cards.Add(card);
         }
-        public void ClearPoint()
-        {
-            Point = 0;
-        }
     }
 }

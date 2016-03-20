@@ -21,15 +21,15 @@ namespace View.Controllers
         private Thread[] botThreads;
         private IForm view;
         private object keyUpdate;
-        private Render g;
+        private Render render;
         private Random rand;
 
         public GameController(IForm view, int wh, int ht)
         {
             rand = new Random();
             this.view = view;
-            g = new Render(wh, ht);
-            view.UpdatePic(g.GetBackground());
+            render = new Render(wh, ht);
+            view.UpdatePic(render.GetBackground());
             player = new Player();
             player.TypePlayer = TypePlayer.Player;
             player.Name = "Player";
@@ -148,7 +148,7 @@ namespace View.Controllers
             Thread.Sleep(100); // задержка выдачи карт
             lock (keyUpdate)
             {
-                view.UpdatePic(g.Draw(bots, player));
+                view.UpdatePic(render.Draw(bots, player));
             }
         }
         /// <summary>
@@ -168,9 +168,9 @@ namespace View.Controllers
         /// <summary>
         /// Конец партии, определение победителя
         /// </summary>
-        private void EndGame()
+        private void EndOfGame()
         {
-            view.UpdatePic(g.ShowCards(bots, player));
+            view.UpdatePic(render.ShowCards(bots, player));
 
             int indexWinner = WinnerOfBots();
             if (player.Hand.Point <= 21 && player.Hand.Point > bots[indexWinner].Hand.Point)
@@ -246,7 +246,7 @@ namespace View.Controllers
         {
             view.EnabledButton = false;
             JoinBots();
-            EndGame();
+            EndOfGame();
         }
 
     }
